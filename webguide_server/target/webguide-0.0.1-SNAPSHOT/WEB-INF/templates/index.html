@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8"/>
+	<title>webguide</title>
+
+    <!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="../resources/css/zerogrid.css" th:href="@{/resources/css/zerogrid.css}"/>
+	<link rel="stylesheet" href="../resources/css/style.css" th:href="@{/resources/css/style.css}"/>
+	<link rel="stylesheet" href="../resources/css/responsive.css" th:href="@{/resources/css/responsive.css}"/>
+
+
+	<link href='#' rel='icon' type='image/x-icon'/>
+
+	<script language="JavaScript">
+		function delete_confirm(e)
+		{
+			if (event.srcElement.outerText == "删除")
+			{
+				event.returnValue = confirm("删除是不可恢复的，你确认要删除吗？");
+			}
+		}
+		document.onclick = delete_confirm;
+	</script>
+
+</head>
+<body>
+<div class="wrap-body zerogrid">
+<header>
+	<div class="wrap-header">
+		<div id="logo">
+			<a href="#"><h1>WebGuide管理系统</h1></a>
+			<p></p>
+		</div>
+
+	</div>
+</header>
+
+<section id="content">
+	<div class="wrap-content">
+		<div class="row block">
+			<div id="main-content" class="col-2-3">
+				<div class="wrap-col">
+
+
+
+
+					<article>
+						<div  class="content">
+
+
+							<div class="info">
+								<div class="heading">
+									<h3><a href="#" th:href="@{/search}">查询激活码</a></h3>
+									<h3><a href="#" th:href="@{/editor/0}">添加网址</a></h3>
+								</div>
+							</div>
+
+
+							<div class="info" th:each="website:${websites}">
+								<img style="float: none" src="https://www.baidu.com/favicon.ico"
+									 th:src="${website.logo}" width="30"/>
+								<p>
+									<span>名称：</span>
+									<span th:text="${website.wname}">百度</span>
+								</p>
+								<p>
+									<span>链接：</span>
+									<span th:text="${website.url}">https://www.baidu.com/</span>
+								</p>
+								<p>
+									<span>权重：</span>
+									<span th:text="${website.weight}">100</span>
+								</p>
+
+								<p align="right">
+									<span><a href="#" th:href="@{/gotoupdate/} + ${website.wid}">编辑</a></span>
+									<span><a href="#" th:href="@{/delete/} + ${website.wid}" onclick="delete_confirm">删除</a></span>
+								</p>
+							</div>
+
+						</div>
+					</article>
+				</div>
+			</div>
+			<div id="sidebar" class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+						<div class="heading"><h2>WebGuide</h2></div>
+						<div class="content">
+							<p>一个android网站导航App</p>
+						</div>
+					</div>
+
+					<div class="box">
+						<div class="heading"><h2>帐号管理</h2></div>
+						<div class="content">
+							<ul>
+								<li><a th:href="@{/changePass}">修改密码</a></li>
+								<li><a th:href="@{/logout}">退出</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="box">
+						<div class="heading"><h2>应用管理</h2></div>
+						<div class="content">
+							<ul>
+								<li><a th:href="@{/goChangePhone}">修改客服电话</a></li>
+								<li><a th:href="@{/goUploadApp}">上传应用</a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="wrap-footer">
+		<div class="row">
+			<div class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+
+					</div>
+				</div>
+			</div>
+			<div class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+
+					</div>
+				</div>
+			</div>
+			<div class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<p><a href="#" target="_blank" title="web guide">web guide</a> </p>
+	</div>
+</footer>
+
+</div>
+</body></html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="10dp"
+    tools:context=".activity.MainActivity">
+
+    <TextView
+        android:id="@+id/deviceid"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:textSize="17dp"
+        android:text="您的设备码是：xxxx-xxxx-xxxx" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="#565e5d"
+        android:text="请拨打客服电话：xxxxxxxx。上报设备标识码获得激活码完成激活。" />
+
+    <EditText
+        android:id="@+id/activation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="激活码"/>
+
+    <Button
+        android:id="@+id/doactive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="激活"/>
+
+
+
+</LinearLayout>

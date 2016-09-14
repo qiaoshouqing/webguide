@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8"/>
+    <title>webguide</title>
+
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="../resources/css/zerogrid.css" th:href="@{/resources/css/zerogrid.css}"/>
+    <link rel="stylesheet" href="../resources/css/style.css" th:href="@{/resources/css/style.css}"/>
+    <link rel="stylesheet" href="../resources/css/responsive.css" th:href="@{/resources/css/responsive.css}"/>
+
+
+    <link href='#' rel='icon' type='image/x-icon'/>
+
+    <script src="../resources/jquery/jquery-3.1.0.min.js"
+            th:src="@{/resources/jquery/jquery-3.1.0.min.js}" type="text/javascript"></script>
+    <script type="text/javascript">
+        function getActiveCode() {
+            var deviceId = $("#deviceId").val();
+            $.ajax({
+                url: "/webguide/getActiveCode/" + deviceId,
+                type: "get",
+                success: function(msg){
+                    $("#activeCode").text(msg);
+            }});
+        }
+    </script>
+
+</head>
+<body>
+<div class="wrap-body zerogrid">
+    <header>
+        <div class="wrap-header">
+            <div id="logo">
+                <a href="#"><h1>WebGuide管理系统</h1></a>
+                <p></p>
+            </div>
+
+        </div>
+    </header>
+
+    <section id="content">
+        <div class="wrap-content">
+            <div class="row block">
+                <div id="main-content" class="col-2-3">
+                    <div class="wrap-col">
+
+                        <article>
+                            <div  class="content">
+
+                                <form id="contact-form">
+                                    <span>设备码:</span>
+                                    <input name="deviceId" id="deviceId" value=""/>
+                                    <br />
+                                    <br />
+                                    <span>激活码:</span>
+                                    <br />
+                                    <span id="activeCode"></span>
+                                    <br />
+                                    <br />
+
+                                    <p style="float: right">
+                                        <a href="" th:href="@{/}" style="margin-right: 20px">返回首页</a>
+                                        <a href="#" onClick="getActiveCode()">获取激活码</a>
+                                    </p>
+                                </form>
+
+
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div id="sidebar" class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+                            <div class="heading"><h2>WebGuide</h2></div>
+                            <div class="content">
+                                <p>一个android网站导航App</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap-footer">
+            <div class="row">
+                <div class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p><a href="#" target="_blank" title="web guide">web guide</a> </p>
+        </div>
+    </footer>
+
+</div>
+</body></html>
